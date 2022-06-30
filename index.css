@@ -56,6 +56,28 @@ body {
     color: var(--purple);
 }
 
+.block-1-input::placeholder {
+    color: var(--purple);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.input-box-help-text {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.variable-text {
+    font-size: 24px;
+    font-weight: 700;
+
+}
+
+.variable-help-text {
+    font-size: 16px;
+    font-weight: 400;
+}
+
 .secondary-bg {
     background: var(--purple);
 }
@@ -86,11 +108,21 @@ body {
 
 .block-1-card {
     border: 1px solid #D3DFFF;
+    width: 340px !important;
 }
 
 .block-1-card-bg {
     background: #F9F9FF;
-    ;
+
+}
+
+.block-1-input {
+    width: 320px !important;
+    padding: 5px;
+}
+
+.sender-details {
+    height: 500px;
 }
 
 .card-text {
@@ -102,6 +134,7 @@ body {
     border: 1px dashed grey;
     padding: 10px;
     margin-top: 10px;
+    height: 150px;
 }
 
 .block-2-table-heading {
