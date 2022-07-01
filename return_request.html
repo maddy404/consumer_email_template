@@ -1,128 +1,315 @@
 <html>
-    <head>
-        <title>Customer Email Template</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
-          rel="stylesheet"
-        />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link href="index.css" rel="stylesheet" type="text/css" />
-        <link href="tabs.css" rel="stylesheet" type="text/css" />
+  <head>
+    <title>Customer Email Template</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link href="tabs.css" rel="stylesheet" type="text/css" />
 
-       <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
-    </head>
-    <body>
-        <!-- Main Div-->
-        <div class="container w-100 d-flex flex-column ">
-           <div class="d-flex justify-content-between align-items-center w-100  p-5">
-            <div class="d-flex justify-content-between align-items-center w-50">
-                <div>
-                    <button type="button" class="btn btn-outline-primary px-5 ">Back</button>
-                </div>
-                <div><span class="fs-3 primary-text-color">Return request received</span></div>
-            </div>
-            <div class="d-flex justify-content-around align-items-center w-25">
-                <div>
-                    <button type="button" id="previewButton" class="btn btn-outline-primary px-4 "><img src="images/eye.svg" alt="preview" /> Preview</button>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-primary px-5 ">Save</button>
-                </div>
-            </div>
-           </div>
-           <div class="d-flex justify-content-around w-100">
-                <div class="d-flex flex-column bg-white  p-5 rounded-3"> 
-                    <div class="d-flex  justify-content-between align-items">
-                        <div class="d-flex flex-column w-100">
-                                <div class="d-flex flex-column white-text p-2">
-                                    <span class="primary-text-color card-text mb-2">Email Subject</span>
-                                    <div class="d-flex flex-column text-primary">
-                                        <input type="text" class="block-1-input" placeholder="Email Subject" class="secondary-text-color card-text" />
-                                        <p class="secondary-text-color input-box-help-text">The subject line for the email</p>
-                                    </div>
-                                    
-                                </div>
-                                <div class="d-flex flex-column white-text p-2">
-                                    <span class="primary-text-color card-text mb-2">Cc</span>
-                                    <div  class="d-flex flex-column text-primary">
-                                        <input type="text" class="block-1-input" placeholder="Cc" class="secondary-text-color card-text" />
-                                        <p class="secondary-text-color input-box-help-text">Use comma to seperate multiple recepients</p>
-                                    </div>
-                                   
-                                </div>
-                        </div>
-                        <div class="d-flex flex-column w-50">
-                            <div class="d-flex flex-column white-text p-2">
-                                <span class="primary-text-color card-text mb-2">BCC</span>
-                                <div  class="d-flex flex-column text-primary">
-                                    <input type="text" class="block-1-input" placeholder="BCC" class="secondary-text-color card-text" />
-                                    <p class="secondary-text-color input-box-help-text">Use comma to seperate multiple recepients</p>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column white-text p-2">
-                                <span class="primary-text-color card-text mb-2">Sender name</span>
-                                <div  class="d-flex flex-column text-primary">
-                                    <input type="text" class="block-1-input" placeholder="Pavan Preetam" class="secondary-text-color card-text" />
-                                    <p class="secondary-text-color input-box-help-text">Use comma to seperate multiple recepients</p>
-                                </div>
-                               
-                            </div>
-                        </div>
-                    </div>
-                   
-                        <div id="editor"  >This is some sample content.</div>
-                       
-                </div>
-                <div class="bg-white p-3 rounded-3" style="width:300px"> 
-                    <div class="d-flex flex-column">
-                        <p class="primary-text-color variable-text">Variables</p>
-                        <p class="variable-help-text primary-text-color">Use variables to display dynamic data in the email templates.</p>
-                        <p class="primary-text-color">Find the list of available variables below.</p>
-                        <ul class="secondary-text-color">
-                            <li>${first_name} </li>
-                            <li>${last_name} </li>
-                            <li>${order_number} </li>
-                            <li>${return_exchange} </li>
-                            <li>${product_title} </li>
-                            <li>${customer_email} </li>
-                            <li>${sender_email} </li>
-                            <li>${store_name} </li>
-                        </ul>
-                    </div>
-                </div>
-                
-           </div>
-         
-           
+    <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
+  </head>
+  <body>
+    <!-- Main Div-->
+    <div class="container w-100 d-flex flex-column">
+      <div class="d-flex justify-content-between align-items-center w-100 p-5">
+        <div class="d-flex justify-content-between align-items-center w-50">
+          <div>
+            <button type="button" class="btn btn-outline-primary px-5">
+              Back
+            </button>
+          </div>
+          <div>
+            <span class="fs-3 primary-text-color">Return request received</span>
+          </div>
         </div>
+        <div class="d-flex justify-content-around align-items-center w-25">
+          <div>
+            <button
+              type="button"
+              id="previewButton"
+              class="btn btn-outline-primary px-4"
+            >
+              <img src="images/eye.svg" alt="preview" /> Preview
+            </button>
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary px-5">Save</button>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-around w-100">
+        <div class="d-flex flex-column bg-white p-5 rounded-3">
+          <div class="d-flex justify-content-between align-items">
+            <div class="d-flex flex-column w-100">
+              <div class="d-flex flex-column white-text p-2">
+                <span class="primary-text-color card-text mb-2"
+                  >Email Subject</span
+                >
+                <div class="d-flex flex-column text-primary">
+                  <input
+                    type="text"
+                    onClick="getID(this.id)"
+                    class="block-1-input"
+                    id="email_subject"
+                    placeholder="Email Subject"
+                    class="secondary-text-color card-text"
+                  />
+                  <p class="secondary-text-color input-box-help-text">
+                    The subject line for the email
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex flex-column white-text p-2">
+                <span class="primary-text-color card-text mb-2">Cc</span>
+                <div class="d-flex flex-column text-primary">
+                  <input
+                    type="text"
+                    onClick="getID(this.id)"
+                    class="block-1-input"
+                    id="cc"
+                    placeholder="cc"
+                    class="secondary-text-color card-text"
+                  />
+                  <p class="secondary-text-color input-box-help-text">
+                    Use comma to seperate multiple recepients
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex flex-column w-50">
+              <div class="d-flex flex-column white-text p-2">
+                <span class="primary-text-color card-text mb-2">BCC</span>
+                <div class="d-flex flex-column text-primary">
+                  <input
+                    type="text"
+                    onClick="getID(this.id)"
+                    class="block-1-input"
+                    id="bcc"
+                    placeholder="BCC"
+                    class="secondary-text-color card-text"
+                  />
+                  <p class="secondary-text-color input-box-help-text">
+                    Use comma to seperate multiple recepients
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex flex-column white-text p-2">
+                <span class="primary-text-color card-text mb-2"
+                  >Sender name</span
+                >
+                <div class="d-flex flex-column text-primary">
+                  <input
+                    type="text"
+                    onClick="getID(this.id)"
+                    class="block-1-input"
+                    id="sender_name"
+                    placeholder="Pavan Preetam"
+                    class="secondary-text-color card-text"
+                  />
+                  <p class="secondary-text-color input-box-help-text">
+                    Use comma to seperate multiple recepients
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
-            CKEDITOR.replace( 'editor' );
-        </script>
-        <script type="text/javascript">
-            $(document).ready( function() {
-                $('#previewButton').click( function () {
-                    // var contents = $('.cke_editable').html();
-                    var frame = document.querySelector(".cke_wysiwyg_frame");
-                    var frameObj = document.getElementsByClassName("cke_wysiwyg_frame");
-alert(frame)
-    var frameContent = frame.contentWindow.document.body.innerHTML;
-        
-    alert("frame content : " + frameContent);
-                    
-                    var mywin = window.open("", "ckeditor_preview", "location=0,status=0,scrollbars=0,width=500,height=500");
-        
-                    $(mywin.document.body).html(frameContent);
-                });
-        
-                $('#editor').CKEDITOR();      
-            });
-        </script>
-    </body>
+          <div id="editor">This is some sample content.</div>
+        </div>
+        <div class="bg-white p-3 rounded-3" style="width: 300px">
+          <div class="d-flex flex-column">
+            <p class="primary-text-color variable-text">Variables</p>
+            <p class="variable-help-text primary-text-color">
+              Use variables to display dynamic data in the email templates.
+            </p>
+            <p class="primary-text-color">
+              Find the list of available variables below.
+            </p>
+            <ul class="secondary-text-color">
+              <li>
+                <a href="#" onclick='insertAtCaret("{{first_name}}")'
+                  >{{first_name}}</a
+                >
+              </li>
+              <li>
+                <a href="#" onclick='insertAtCaret("{{last_name}}")'
+                  >{{last_name}}</a
+                >
+              </li>
+              <li>
+                <a href="#" onclick='insertAtCaret("{{order_number}}")'
+                  >{{order_number}}</a
+                >
+              </li>
+              <li>
+                <a href="#" onclick='insertAtCaret("{{return_exchange}}")'
+                  >{{return_exchange}}</a
+                >
+              </li>
+              <li>
+                <a href="#" onclick='insertAtCaret("{{product_title}}")'
+                  >{{product_title}}</a
+                >
+              </li>
+              <li>
+                <a href="#" onclick='insertAtCaret("{{customer_email}}")'
+                  >{{customer_email}}</a
+                >
+              </li>
+              <li>
+                <a href="#" onclick='insertAtCaret("{{sender_email}}")'
+                  >{{sender_email}}</a
+                >
+              </li>
+              <li>
+                <a href="#" onclick='insertAtCaret("{{store_name}}")'
+                  >{{store_name}}</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!--Email Template Modal Preview-->
+
+      <div
+        class="modal fade "
+        id="myModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalScrollableTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-scrollable w-75">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalScrollableTitle">
+                Preview
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body" id="modal-content"></div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      CKEDITOR.replace("editor");
+      CKEDITOR.on('instanceReady', function(e) {
+ 
+ var selection = e.editor.getSelection();
+ var range = selection.getRanges()[0];
+ var cursor_position = range.startOffset;
+
+ console.log(cursor_position)
+
+ });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+
+       
+
+
+        $("#previewButton").click(function () {
+
+          
+
+          // var contents = $('.cke_editable').html();
+          var frame = document.querySelector(".cke_wysiwyg_frame");
+          var source = document.querySelector(".cke_source");
+          var sourceContent = source?.contentWindow?.document.body.innerHTML;
+          var frameContent = frame?.contentWindow?.document.body.innerHTML;
+
+          console.log(frame?.contentWindow?.document.body)
+          var mainContent = frameContent ? frameContent : sourceContent;
+
+          // var mywin = window.open("", "ckeditor_preview", "location=0,status=0,scrollbars=0,width=500,height=500");
+          $("#myModal").modal("show");
+          $("#modal-content").html(mainContent);
+        });
+
+        // $('#editor').CKEDITOR();
+      });
+    </script>
+    <script>
+      function insertAtCaret(text) {
+        const textArea = document.getElementById(localStorage.getItem("id"));
+        if (!textArea) {
+          alert("Please Choose any Input Box");
+          return;
+        }
+
+        let textAreaValue = textArea.value;
+
+        if (textAreaValue.length > 0) {
+          const cursorPosition = textArea.selectionStart;
+          const textBefore = textAreaValue.substring(0, cursorPosition);
+          const textAfter = textAreaValue.substring(
+            cursorPosition,
+            textAreaValue.length
+          );
+
+          textArea.value = textBefore + " " + text + " " + textAfter;
+
+          alert(textAreaValue);
+          return;
+        }
+        textArea.value = text;
+
+        var scrollPos = textArea.scrollTop;
+        textArea.scrollTop = scrollPos;
+      }
+
+      function getID(clicked_id) {
+        localStorage.setItem("id", clicked_id);
+      }
+
+      window.onload = () => localStorage.removeItem("id");
+    </script>
+
+    <script>
+    //   function coordinatesFunc(event) {
+    //     document.write(
+    //       "Coordinate(X) = " +
+    //         event.clientX +
+    //         "<br>Coordinate(Y) = " +
+    //         event.clientY
+    //     );
+    //   }
+    </script>
+  </body>
 </html>
