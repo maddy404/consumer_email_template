@@ -231,24 +231,16 @@ body {
   left: 10px;
 }
 
-.toggle-group
-  input[type='checkbox']:checked
-  ~ .onoffswitch
-  .onoffswitch-label
-  .onoffswitch-inner {
+.toggle-group input[type='checkbox']:checked~.onoffswitch .onoffswitch-label .onoffswitch-inner {
   margin-left: 0;
 }
 
-.toggle-group
-  input[type='checkbox']:checked
-  ~ .onoffswitch
-  .onoffswitch-label
-  .onoffswitch-switch {
+.toggle-group input[type='checkbox']:checked~.onoffswitch .onoffswitch-label .onoffswitch-switch {
   right: 1px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
-.toggle-group input[type='checkbox']:focus ~ .onoffswitch {
+.toggle-group input[type='checkbox']:focus~.onoffswitch {
   outline: thin dotted #333;
   outline: 0;
 }
@@ -291,4 +283,12 @@ body {
 
 .nav-link active {
   border-color: #c44915 !important;
+}
+
+.email-template-main {
+  width: 70% !important;
+}
+
+.variable-block {
+  width: 26% !important
 }
