@@ -140,48 +140,52 @@
             <p class="primary-text-color">
               Find the list of available variables below.
             </p>
+           
             <ul class="secondary-text-color">
               <li>
-                <a href="#" onclick='insertAtCaret("{{first_name}}")'
+                <a href="#" onclick='insertAtCaret("{{first_name}}");copyText(this);showPopup()'
                   >{{first_name}}</a
                 >
               </li>
               <li>
-                <a href="#" onclick='insertAtCaret("{{last_name}}")'
+                <a href="#" onclick='insertAtCaret("{{last_name}}");copyText(this);showPopup()'
                   >{{last_name}}</a
                 >
               </li>
               <li>
-                <a href="#" onclick='insertAtCaret("{{order_number}}")'
+                <a href="#" onclick='insertAtCaret("{{order_number}}");copyText(this);showPopup()'
                   >{{order_number}}</a
                 >
               </li>
               <li>
-                <a href="#" onclick='insertAtCaret("{{return_exchange}}")'
+                <a href="#" onclick='insertAtCaret("{{return_exchange}}");copyText(this);showPopup()'
                   >{{return_exchange}}</a
                 >
               </li>
               <li>
-                <a href="#" onclick='insertAtCaret("{{product_title}}")'
+                <a href="#" onclick='insertAtCaret("{{product_title}}");copyText(this);showPopup()'
                   >{{product_title}}</a
                 >
               </li>
               <li>
-                <a href="#" onclick='insertAtCaret("{{customer_email}}")'
+                <a href="#" onclick='insertAtCaret("{{customer_email}}");copyText(this);showPopup()'
                   >{{customer_email}}</a
                 >
               </li>
               <li>
-                <a href="#" onclick='insertAtCaret("{{sender_email}}")'
+                <a href="#" onclick='insertAtCaret("{{sender_email}}");copyText(this);showPopup()'
                   >{{sender_email}}</a
                 >
               </li>
               <li>
-                <a href="#" onclick='insertAtCaret("{{store_name}}")'
+                <a href="#" onclick='insertAtCaret("{{store_name}}");copyText(this);showPopup()'
                   >{{store_name}}</a
                 >
               </li>
             </ul>
+            <div class="popup" >
+              <span class="popuptext" id="popup">Text Copied</span>
+            </div>
           </div>
         </div>
       </div>
@@ -233,15 +237,14 @@
       CKEDITOR.replace("editor");
       CKEDITOR.on('instanceReady', function(e) {
  
- var selection = e.editor.getSelection();
- var range = selection.getRanges()[0];
- var cursor_position = range.startOffset;
+      // var selection = e.editor.getSelection();
+      // var range = selection.getRanges()[0];
+      // var cursor_position = range.startOffset;
 
- console.log(cursor_position)
-
- });
+      });
     </script>
     <script type="text/javascript">
+      /*Show Preview */
       $(document).ready(function () {
 
        
@@ -269,10 +272,11 @@
 
     </script>
     <script>
+      /* Find Cursor Position and Insert Text */
       function insertAtCaret(text) {
         const textArea = document.getElementById(localStorage.getItem("id"));
         if (!textArea) {
-          alert("Please Choose any Input Box");
+          // alert("Please Choose any Input Box");
           return;
         }
 
@@ -292,16 +296,50 @@
         }
         textArea.value = text;
 
-        var scrollPos = textArea.scrollTop;
-        textArea.scrollTop = scrollPos;
+        // var scrollPos = textArea.scrollTop;
+        // textArea.scrollTop = scrollPos;
       }
 
+    /*    On A Click Get ID of element */
       function getID(clicked_id) {
         localStorage.setItem("id", clicked_id);
       }
 
       window.onload = () => localStorage.removeItem("id");
     </script>
+    
+  <script>
+    /* Copy text */
+  function copyText(elem){
+   
+  if($(elem).text()){
+    var dummy = document.createElement("textarea");
+      document.body.appendChild(dummy);
+      dummy.value = $(elem).text();
+      dummy.select();
+      document.execCommand("copy");
+      document.body.removeChild(dummy);
+  }else{
+    input  = $(elem).val();
+    elem.select();//Select the text in the input element 
+    document.execCommand('copy');//copy it 
+  }
 
+
+
+  $(elem).next().text('text copied');
+
+  setTimeout(function(){$(elem).next().text('text copied');}, 2000);//
+}
+  </script>
+  <script>
+    function showPopup() {
+      
+    let popup = document.getElementById("popup");
+    popup.classList.toggle("show");
+
+    setTimeout(function(){popup.classList.remove("show")}, 1000);//
+  }
+  </script>
   </body>
 </html>
